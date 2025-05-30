@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-Oct-2023, 9:34:49 am by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	
+<class name="com.java.model.GroupsMembers" table="groupMembers">
+    <id  name="groupMemberId" type="int">
+    <column name="groupMemberId" />
+    <generator class="identity"/>
+    </id>
+    
+          <many-to-one name = "groups" class="com.java.model.Groups" fetch="select">
+          <column name="groupId" not-null="true"/>
+          </many-to-one>
+          
+          <many-to-one name="users" class="com.java.model.Users" fetch="select">
+          <column name="userId" not-null="true"/>
+          </many-to-one>
+          
+           <property name="joinedAt" type="int" >
+          <column name="joinedAt" />
+          </property>
+         
+
+</class>
+</hibernate-mapping>

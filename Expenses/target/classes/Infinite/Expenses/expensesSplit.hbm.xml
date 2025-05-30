@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.java.model.ExpensesSplit" table="ExpensesSplit">
+
+
+    <!-- Primary Key -->
+    <id name="expensesSplitId" type="int">
+      <column name="expensesSplitId" not-null="true"/>
+      <generator class="identity"/>
+    </id>
+
+    <!-- Foreign Key to Expense -->
+    <many-to-one name="expense" class="com.java.model.Expenses" fetch="select">
+      <column name="expenseId" not-null="true"/>
+    </many-to-one>
+
+    <!-- Foreign Key to User -->
+    <many-to-one name="user" class="com.java.model.Users" fetch="select">
+      <column name="userId" not-null="true"/>
+    </many-to-one>
+
+    <!--  Property -->
+    <property name="amountOwed" type="double">
+      <column name="amountOwed"/>
+    </property>
+
+  </class>
+</hibernate-mapping>

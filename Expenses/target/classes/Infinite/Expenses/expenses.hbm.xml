@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-Oct-2023, 9:34:49 am by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	
+<class name="com.java.model.Expenses" table="expenses">
+              <id name="expensesId" type="int">
+              <column name="expensesId" not-null="true"/>
+                <generator class="identity"/>
+              </id>
+              <many-to-one name = "groups" class="com.java.model.Groups" fetch="select">
+          <column name="groupId" not-null="true"/>
+          </many-to-one>
+              
+               <property name="paidByUserId" type="java.lang.String">
+                 <column name="paidByUserId"/>
+              </property>
+
+              <property name="description" type="java.lang.String">
+                 <column name="description"/>
+              </property>
+                <property name="totalAmount" type="java.lang.String">
+                 <column name="totalAmount"/>
+              </property>
+                <property name="expenseDate" type="java.lang.String">
+                 <column name="expenseDate"/>
+              </property>
+              
+                  <property name="createdAt" type="double">
+                 <column name="createdAt"/>
+              </property>
+              
+              
+              
+              
+              
+  </class>
+  </hibernate-mapping>
